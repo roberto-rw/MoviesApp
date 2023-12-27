@@ -1,14 +1,19 @@
-import { Button, Text, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { Text, View } from "react-native";
+import { useEffect } from "react";
+import movieDB from "../api/movieDB";
+import { MovieDBNowPlaying } from "../interfaces/movieInterfaces";
 
 export default function HomeScreen() {
-    const navigation = useNavigation();
+    useEffect(() => {
+        movieDB.get<MovieDBNowPlaying>('/now_playing')
+        .then(resp => {
+            console.log(resp.data.results[0].title)
+        })
+    }, [])
+
     return (
         <View>
             <Text>HomeScreen</Text>
-            <Button title="ir detalle"
-                    onPress={() => navigation.navigate('Details' as never)}
-                ></Button>
         </View>
     );
 }

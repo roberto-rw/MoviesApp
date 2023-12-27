@@ -4,11 +4,6 @@ import { StyleSheet } from "react-native";
 export default function DetailScreen() {
     return (
         <View style={styles.container}>
-            <Text>DetailScreen eaea
-                asdadasda
-                asdadasda
-
-            </Text>
         </View>
     );
 }
