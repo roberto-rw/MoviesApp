@@ -1,12 +1,14 @@
-
+import 'react-native-gesture-handler';
 import React from 'react';
-import {Text} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import Navigation from './src/navigation/Navigation';
 
 function App(): React.JSX.Element {
 
-
   return (
-    <Text>hello</Text>
+    <NavigationContainer>
+      <Navigation/>
+    </NavigationContainer>
   );
 }
 
