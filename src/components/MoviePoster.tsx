@@ -3,12 +3,18 @@ import { Movie } from "../interfaces/movieInterfaces";
 
 interface Props{
     movie: Movie;
+    height?: number;
+    width?: number;
 }
 
-export default function MoviePoster({movie}: Props) {
+export default function MoviePoster({movie, height = 420, width = 300}: Props) {
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     return (
-        <View style={styles.view}>
+        <View style={{
+            height,
+            width,
+            marginHorizontal: 8
+        }}>
             <Image
                 source={{uri}}
                 style={styles.image}
@@ -21,9 +27,5 @@ const styles = StyleSheet.create({
     image:{
         flex:1,
         borderRadius:18
-    },
-    view:{
-        width:300,
-        height:420,
     }
 });
